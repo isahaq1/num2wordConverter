@@ -5,7 +5,7 @@
   "license": "MIT",
   "autoload": {
     "psr-4": {
-      "Isahaq\\Num2str\\": "src/"
+      "Isahaq\\Num2Str\\": "src/"
     }
   },
   "authors": [
@@ -21,7 +21,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Isahaq\\Num2str\\Num2StrServiceProvider"
+        "Isahaq\\Num2Str\\Num2StrServiceProvider"
       ]
     }
   }
