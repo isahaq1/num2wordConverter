@@ -9,7 +9,9 @@ Convert numbers into English or Bangla words easily in your Laravel application.
 ```bash
 composer require isahaq/num2str:@dev
 
-# 🚀 How to Implement
+---
+
+## 🚀 How to Implement
 
 Make sure to import the class:
 
