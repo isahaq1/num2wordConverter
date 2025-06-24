@@ -1,6 +1,6 @@
 <?php
 
-namespace isahaq\Num2Str;
+namespace Isahaq\Num2str;
 
 class Num2Str
 {

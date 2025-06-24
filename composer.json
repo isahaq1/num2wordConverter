@@ -20,7 +20,7 @@
   "extra": {
     "laravel": {
       "providers": [
-        "isahaq\\Num2str\\NumberToWordsServiceProvider"
+        "Isahaq\\Num2str\\Num2StrServiceProvider"
       ]
     }
   },
