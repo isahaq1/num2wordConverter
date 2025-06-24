@@ -13,7 +13,6 @@ class Num2Str
     {
         if ($num == 0) return 'zero';
 
-        $words = '';
         $dictionary = [
             0 => 'zero', 1 => 'one', 2 => 'two', 3 => 'three', 4 => 'four',
             5 => 'five', 6 => 'six', 7 => 'seven', 8 => 'eight', 9 => 'nine',
@@ -24,18 +23,40 @@ class Num2Str
             60 => 'sixty', 70 => 'seventy', 80 => 'eighty', 90 => 'ninety'
         ];
 
+        $units = [
+            1000000000000 => 'trillion',
+            1000000000    => 'billion',
+            1000000       => 'million',
+            1000          => 'thousand',
+            100           => 'hundred'
+        ];
+
+        if ($num < 0) {
+            return 'minus ' . $this->numberToWords(abs($num));
+        }
+
         if ($num < 21) {
             return $dictionary[$num];
         } elseif ($num < 100) {
             $tens = ((int) ($num / 10)) * 10;
-            $units = $num % 10;
-            return $dictionary[$tens] . ($units ? '-' . $dictionary[$units] : '');
+            $unitsNum = $num % 10;
+            return $dictionary[$tens] . ($unitsNum ? '-' . $dictionary[$unitsNum] : '');
         } elseif ($num < 1000) {
             $hundreds = (int) ($num / 100);
             $remainder = $num % 100;
             return $dictionary[$hundreds] . ' hundred' . ($remainder ? ' ' . $this->numberToWords($remainder) : '');
         } else {
-            return (string) $num;
+            foreach ($units as $value => $name) {
+                if ($num >= $value) {
+                    $numUnits = (int) ($num / $value);
+                    $remainder = $num % $value;
+                    $words = $this->numberToWords($numUnits) . ' ' . $name;
+                    if ($remainder) {
+                        $words .= ' ' . $this->numberToWords($remainder);
+                    }
+                    return $words;
+                }
+            }
         }
     }
 }
