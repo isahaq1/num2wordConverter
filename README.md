@@ -7,7 +7,7 @@ Convert numbers into English or Bangla words easily in your Laravel application.
 ## 📦 Install Package
 
 ```bash
-composer require isahaq/num2str:@dev
+composer require isahaq/num2str
 
 ---
 
@@ -48,6 +48,7 @@ Route::get('/convert/{number}', function ($number, Num2Str $converter) {
     // Convert to Bangla
     return $converter->convertBn((int) $number);
 });
-  
 
 
+
+```
